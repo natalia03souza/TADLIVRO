@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+struct livro{
+
+    char titulo[100];
+    char autor[100];
+    int pag;
+
+    void imprimir(){
+        printf("\nTitulo: %s\n", titulo);
+        printf("Autor: %s\n", autor);
+        printf("Paginas: %d\n \n", pag);
+    }
+
+    void ler(){
+        scanf("%[^\n]%*c", titulo);
+        scanf("%[^\n]%*c", autor);
+        scanf("%d%*c", &pag);
+    }
+
+};
+
+    struct biblioteca{
+
+        livro x[10];
+        int i, j, maior = 0, menor = 0;
+
+    void imprimir2(){
+
+        for (i = 0; i < 10; i++) {
+                x[i].ler();
+
+                menor = x[i].pag;
+
+                if (maior < menor){
+                    maior = menor;
+                }
+        }
+
+
+        for (i = 0; i < 10; i++){
+
+            if (x[i].pag == maior){
+
+                printf("\nLivro com maior numero de paginas: %s\n", x[i].titulo);
+
+            }
+
+        }
+
+
+        for (int i = 0; i < 10; i++) {
+            x[i].imprimir();
+        }
+
+
+    }
+
+
+
+    };
+
+int main(){
+
+    biblioteca b;
+
+    b.imprimir2();
+}
